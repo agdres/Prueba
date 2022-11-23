@@ -1,0 +1,98 @@
+/* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+  height: 100vh;
+}
+
+:root {
+  --primary-color: #185ee0;
+  --secondary-color: #e6eef9;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  background-color: rgba(var(--secondary-color), 0.5);
+}
+
+.btn_block {
+  display: flex;
+  justify-content: center;
+  &_Save {
+    //background-color: var(--first-color);
+    //background-color: #35DB64;
+    border-radius: 2rem !important;
+    width: 10rem;
+    background-color: #4c5f7a !important;
+    color: white !important;
+    font-family: sans-serif;
+    font-weight: 500;
+    margin-left: 0.5rem !important;
+   font-size: 1rem;
+   height: 2.4rem !important;
+    margin-top: 1rem !important;
+  }
+
+  &_Cancel {
+    border-radius: 2rem !important;
+    background-color: #b7bec7 !important;
+    color: black !important;
+    font-family: sans-serif;
+    font-weight: 500;
+    width: 10rem;
+    margin-right: 0.5rem !important;
+    font-size: 1rem;
+    height: 2.4rem !important;
+    margin-top: 1rem !important;
+
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .btn_block {
+    flex-direction: column;
+    margin-bottom: 3rem !important;
+    &_Cancel {
+      margin-top: 3rem !important;
+      width: 100%;
+      margin-right: 0 !important;
+      margin-bottom: -3rem !important;
+    }
+    &_Save {
+      margin-top: -2.2rem !important;
+      margin-left: 0 !important;
+      width: 100%;
+    }
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 950px) {
+  .btn_block {
+    &_Cancel {
+      width: 40%;
+    }
+    &_Save {
+      width: 40%;
+    }
+  }
+}
+@media screen and (min-width: 950px) and (max-width: 1250px) {
+  .btn_block {
+    &_Cancel {
+      width: 35%;
+    }
+    &_Save {
+      width: 35%;
+    }
+  }
+}
+
+@media screen and (min-width: 1250px) and (max-width: 1920px) {
+  .btn_block {
+    &_Cancel {
+      width: 20%;
+    }
+    &_Save {
+      width: 20%;
+    }
+  }
+}

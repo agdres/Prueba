@@ -1,0 +1,14 @@
+<div class="container ">
+    <div class="block">
+        <div class="tabs">
+            <input type="radio" id="radio-2" name="tabs" />
+            <label class="tab" for="radio-2" [routerLink]="['Personas']">Personas</label>
+            <input type="radio" id="radio-3" name="tabs" />
+            <label class="tab" for="radio-3"  [routerLink]="['Login']" >Ingreso</label>
+            <span class="glider"></span>
+        </div>
+    </div>
+    <div class="mt-5">
+        <router-outlet></router-outlet>
+    </div>
+</div>

@@ -1,0 +1,97 @@
+.block {
+	margin-top: 1.5rem;
+	display: flex;
+	align-items: flex-start;
+	justify-content: center;
+}
+
+.tabs {
+	display: flex;
+	position: relative;
+    height: 4rem;
+	background-color: #fff;
+	box-shadow: 0 0 1px 0 rgba(#185ee0, 0.15), 0 6px 12px 0 rgba(#185ee0, 0.15);
+	padding: 0.75rem;
+	border-radius: 99px; // just a high number to create pill effect
+    z-index: 2;
+}
+
+input[type="radio"] {
+	display: none;
+}
+
+.tab {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 55px;
+	width: 200px;
+    padding-bottom: .8rem;
+	font-size: 1.1rem;
+	font-weight: 500;
+	border-radius: 99px; // just a high number to create pill effect
+	cursor: pointer;
+	transition: color 0.15s ease-in;
+    z-index: 5;
+}
+
+.notification {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 2rem;
+	height: 2rem;
+	margin-left: 0.75rem;
+	border-radius: 50%;
+	background-color: var(--secondary-color);
+	transition: 0.15s ease-in;
+}
+
+input[type="radio"] {
+	&:checked {
+		& + label {
+			color: var(--primary-color);
+			& > .notification {
+				background-color: var(--primary-color);
+				color: #fff;
+			}
+		}
+	}
+}
+
+input[id="radio-3"] {
+	&:checked {
+		& ~ .glider {
+			transform: translateX(117%);
+			
+		}
+	}
+}
+
+input[id="radio-2"] {
+	&:checked {
+		& ~ .glider {
+			transform: translateX(0%);
+			margin-left: .7rem;
+			width: 170px;
+		}
+	}
+}
+
+.glider {
+	position: absolute;
+	display: flex;
+	height: 40px;
+	width: 170px;
+	margin-left: 1rem;
+	background-color: var(--secondary-color);
+	z-index: 1;
+	border-radius: 99px; // just a high number to create pill effect
+	transition: 0.25s ease-out;
+}
+
+@media (max-width: 700px) {
+	.tabs {
+		transform: scale(.8);
+	}
+}

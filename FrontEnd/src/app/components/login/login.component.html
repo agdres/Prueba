@@ -1,0 +1,23 @@
+<div class="row justify-content-center pt-5">
+    <div [formGroup]="FrmLogin" class="col-md-6 mt-5  row justify-content-center pt-2">
+      <h4 class="text-center mb-4">Login</h4>
+      <mat-form-field class="col-md-10 mt-1 mb-1" appearance="outline">
+          <mat-label>Usuario</mat-label>
+          <input matInput maxlength="250" autocomplete="off" formControlName="user"/>
+          <mat-error *ngIf="FrmLogin!.controls['user'].errors?.['required']">
+                <strong>Campo requerido</strong>
+            </mat-error>
+        </mat-form-field>
+    
+        <mat-form-field class="col-md-10 mt-1 mb-1" appearance="outline">
+          <mat-label>Clave</mat-label>
+          <input matInput type="password" autocomplete="off"  maxlength="250" formControlName="pass"/>
+          <mat-error *ngIf="FrmLogin!.controls['pass'].errors?.['required']">
+                <strong>Campo requerido</strong>
+            </mat-error>
+        </mat-form-field>
+
+        <button mat-flat-button class="btn_login col-md-6" (click)="validarUsuario()">Ingresar</button>
+
+  </div>
+</div>

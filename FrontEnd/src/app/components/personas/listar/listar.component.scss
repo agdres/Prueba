@@ -1,0 +1,16 @@
+// Estilos para el paginador
+.mat-paginator {
+    display: flex !important;
+    justify-content: center !important;
+}
+  
+:host ::ng-deep.mat-mdc-paginator-container {
+  justify-content: center !important;
+
+}
+
+// Estilos Input Buscar
+.filtro{
+  width: 100%;
+
+}

@@ -1,0 +1,103 @@
+<div class="row justify-content-center">
+
+  <div [formGroup]="FrmPersona" class="col-md-8 row">
+    <h5 class="titulo mb-3">Datos Persona</h5>
+    <mat-form-field class="col-md-6 mt-1 mb-1" appearance="outline">
+      <mat-label>Nombres</mat-label>
+      <input matInput maxlength="100" formControlName="nombres" (keypress)="InputLetras($event)" />
+      <mat-error *ngIf="FrmPersona!.controls['nombres'].errors?.['required']">
+            <strong>Campo requerido</strong>
+        </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="col-md-6 mt-1 mb-1" appearance="outline">
+      <mat-label>Apellidos</mat-label>
+      <input matInput maxlength="100" formControlName="apellidos" (keypress)="InputLetras($event)"/>
+      <mat-error *ngIf="FrmPersona!.controls['apellidos'].errors?.['required']">
+            <strong>Campo requerido</strong>
+        </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="col-md-6 mt-1 mb-1" appearance="outline">
+      <mat-label>Numero Identificación</mat-label>
+      <input
+        matInput
+        maxlength="20"
+        formControlName="identificacion"
+        onpaste="return false"
+        (keypress)="InputNumeros($event)"
+        autocomplete="off"
+      />
+      <mat-error *ngIf="FrmPersona!.controls['identificacion'].errors?.['required']">
+        <strong>Campo requerido</strong>
+        </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="col-md-6 mt-1 mb-1" appearance="outline">
+      <mat-label>Tipo Identificación</mat-label>
+      <mat-select disableRipple formControlName="tipoDocumento">
+        <!-- <mat-option *ngFor="let editorial of Editoriales |async" [value]="editorial.id">{{editorial.nombre+' ( '+editorial.sede+' )'}}</mat-option> -->
+        <mat-option value="Tarjeta de identidad">Tarjeta de identidad</mat-option>
+        <mat-option value="Cédula de ciudadanía">Cédula de ciudadanía</mat-option>
+        <mat-option value="Tarjeta de extranjería">Tarjeta de extranjería</mat-option>
+        <mat-option value="Cédula de exranjeria">Cédula de exranjeria</mat-option>
+        <mat-option value="NIT">NIT</mat-option>
+        <mat-option value="Pasaporte">Pasaporte</mat-option>
+        <mat-option value="Documento de identificación extranjero">Documento de identificación extranjero</mat-option>
+        <mat-option value="NIT de otro país">NIT de otro país</mat-option>
+      </mat-select>
+      <mat-error *ngIf="FrmPersona!.controls['tipoDocumento'].errors?.['required']">
+        <strong>Campo requerido</strong>
+        </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="col-md-12 mt-1 mb-1" appearance="outline">
+      <mat-label>E-Mail</mat-label>
+      <input matInput maxlength="250" formControlName="email" />
+      <mat-error *ngIf="FrmPersona!.controls['email'].errors?.['required'] && !FrmPersona!.controls['email'].errors?.['pattern']">
+            <strong>Campo requerido</strong>
+      </mat-error>
+      <mat-error *ngIf="FrmPersona!.controls['email'].errors?.['pattern']">
+            <strong>Formato Incorrecto</strong>
+      </mat-error>
+    </mat-form-field>
+
+    <h5 class="titulo mt-1 mb-3">Datos Usuario</h5>
+    <mat-form-field class="col-md-6 mt-1 mb-1" appearance="outline">
+      <mat-label>Usuario</mat-label>
+      <input
+        matInput
+        maxlength="250"
+        formControlName="usuario"
+        onpaste="return false"
+        autocomplete="off"
+      />
+      <mat-error *ngIf="FrmPersona!.controls['usuario'].errors?.['required']">
+        <strong>Campo requerido</strong>
+        </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="col-md-6 mt-1 mb-1" appearance="outline">
+      <mat-label>Clave</mat-label>
+      <input
+        matInput
+        maxlength="250"
+        formControlName="clave"
+        onpaste="return false"
+        autocomplete="off"
+      />
+      <mat-error *ngIf="FrmPersona!.controls['clave'].errors?.['required']">
+        <strong>Campo requerido</strong>
+        </mat-error>
+    </mat-form-field>
+
+    <div class="btn_block">
+      <button mat-button class="btn_block_Cancel" (click)="Limpiar()">Limpiar</button>
+      <button mat-flat-button class="btn_block_Save" (click)="postPersona()">Guardar</button>
+    </div>
+  </div>
+
+  <div class="col-md-12">
+    <app-listar></app-listar>
+  </div>
+</div>
